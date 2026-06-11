@@ -48,12 +48,6 @@ GitHub Actions (매일 09:00 KST / 수동 실행)
 2. 좌측 **Incoming Webhooks** → 토글 On → **Add New Webhook to Workspace** → 발송할 채널 선택
 3. 발급된 **Webhook URL** 저장 (예: `https://hooks.slack.com/services/T.../B.../xxx`)
 
-테스트:
-```bash
-curl -X POST -H 'Content-type: application/json' \
-  --data '{"text":"📢 테스트"}' "https://hooks.slack.com/services/..."
-```
-
 ### 2. Claude 인증 토큰 발급 (Pro/Max 구독)
 
 API 키 종량제 과금 대신 claude.ai 구독 할당량을 사용한다 (별도 청구 없음).
@@ -81,24 +75,6 @@ push 후 Actions 탭에서 `ad-api-notice-watch` → Run workflow (수동 실행
 **최초 실행은 현재 공지 전체를 seen 처리만 하고 알림을 보내지 않는다** (초기화).
 이후 실행부터 신규 공지만 알림.
 
-## 로컬 테스트
-
-```bash
-pip install -r requirements.txt
-
-# 1) 첫 실행 — 소스별 파싱 결과 출력 + seen.json 초기화 (알림 대상 없음)
-python scripts/crawl.py
-
-# 2) state/seen.json에서 id 몇 개를 삭제한 뒤 재실행
-#    → 삭제한 id가 신규로 분류되어 out/new_items.json이 생성되는지 확인
-python scripts/crawl.py
-cat out/new_items.json
-
-# 3) 슬랙 발송 테스트 (out/summary.md를 직접 만들어서)
-echo "📢 테스트 메시지" > out/summary.md
-SLACK_WEBHOOK_URL="https://hooks.slack.com/services/..." python scripts/notify.py
-```
-
 ## 소스 추가 방법
 
 1. `sources.json`에 항목 추가:
@@ -124,7 +100,7 @@ SLACK_WEBHOOK_URL="https://hooks.slack.com/services/..." python scripts/notify.p
 ├── .claude/skills/notice-summary/SKILL.md  # 요약 규칙 (중요도 분류)
 ├── scripts/
 │   ├── crawl.py                         # 수집 → 신규 판별 → new_items.json
-│   └── notify.py                        # 텔레그램 발송
+│   └── notify.py                        # 슬랙 발송
 ├── sources.json                         # 모니터링 대상 정의
 ├── state/seen.json                      # 알림 완료 id (git 커밋 대상)
 └── out/                                 # new_items.json, summary.md (커밋 안 함)
