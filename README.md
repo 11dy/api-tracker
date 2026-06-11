@@ -5,7 +5,7 @@
 ## 동작 흐름
 
 ```
-GitHub Actions (매일 09:00 KST / 수동 실행)
+GitHub Actions (매일 09/12/15/18시 KST / 수동 실행)
 │
 ├─ 1. scripts/crawl.py                     ← 결정적 처리 (LLM 없음)
 │     sources.json의 각 소스에서 최신 공지 최대 10건 파싱
