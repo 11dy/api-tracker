@@ -1,0 +1,60 @@
+[
+  {
+    "id": "naver_searchad",
+    "name": "네이버 검색광고 API",
+    "url": "https://api.github.com/repos/naver/searchad-apidoc/issues?state=all&sort=created&direction=desc&per_page=10",
+    "type": "github_api",
+    "parser": "parse_naver_searchad",
+    "enabled": true
+  },
+  {
+    "id": "naver_gfa",
+    "name": "네이버 GFA(성과형 디스플레이) API",
+    "url": "https://naver-ad-api.github.io/openapi-guide/blog",
+    "type": "html",
+    "parser": "parse_naver_gfa",
+    "enabled": true
+  },
+  {
+    "id": "kakao_devtalk",
+    "name": "카카오 데브톡 공지",
+    "url": "https://devtalk.kakao.com/c/notice",
+    "type": "json",
+    "parser": "parse_kakao_devtalk",
+    "enabled": true
+  },
+  {
+    "id": "google_ads",
+    "name": "Google Ads API",
+    "url": "https://developers.google.com/google-ads/api/docs/release-notes",
+    "type": "html",
+    "parser": "parse_google_ads",
+    "enabled": true
+  },
+  {
+    "id": "meta_marketing",
+    "name": "Meta Graph API",
+    "url": "https://developers.facebook.com/docs/graph-api/changelog",
+    "type": "html",
+    "parser": "parse_meta_marketing",
+    "enabled": true
+  },
+  {
+    "id": "criteo",
+    "name": "Criteo Marketing API",
+    "url": "https://developers.criteo.com/marketing-solutions/docs/release-notes",
+    "type": "html",
+    "parser": "parse_criteo",
+    "enabled": false,
+    "note": "2026-06 기준 해당 URL 404 (Page Not Found). 새 release notes URL 확인 후 enabled: true로 변경"
+  },
+  {
+    "id": "tiktok",
+    "name": "TikTok Business API",
+    "url": "https://business-api.tiktok.com/portal/docs",
+    "type": "html",
+    "parser": "parse_tiktok",
+    "enabled": false,
+    "note": "JS 렌더링(Next.js) 페이지라 requests로 파싱 불가"
+  }
+]

@@ -1,0 +1,66 @@
+name: ad-api-notice-watch
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 매일 09:00 KST (00:00 UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Crawl sources
+        run: python scripts/crawl.py
+
+      - name: Check for new items
+        id: check
+        run: |
+          if [ -f out/new_items.json ]; then
+            echo "has_new=true" >> "$GITHUB_OUTPUT"
+            echo "신규 공지 있음"
+          else
+            echo "has_new=false" >> "$GITHUB_OUTPUT"
+            echo "신규 공지 없음"
+          fi
+
+      - name: Summarize with Claude
+        if: steps.check.outputs.has_new == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: "out/new_items.json을 .claude/skills/notice-summary 기준으로 요약해 out/summary.md로 저장해줘"
+          claude_args: "--allowedTools Read,Write"
+
+      - name: Send Telegram notification
+        if: steps.check.outputs.has_new == 'true'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/notify.py
+
+      - name: Commit seen.json
+        run: |
+          if ! git diff --quiet state/seen.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add state/seen.json
+            git commit -m "chore: seen update $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "seen.json 변경 없음"
+          fi
