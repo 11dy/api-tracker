@@ -46,11 +46,10 @@ jobs:
           prompt: "out/new_items.json을 .claude/skills/notice-summary 기준으로 요약해 out/summary.md로 저장해줘"
           claude_args: "--allowedTools Read,Write"
 
-      - name: Send Telegram notification
+      - name: Send Slack notification
         if: steps.check.outputs.has_new == 'true'
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: python scripts/notify.py
 
       - name: Commit seen.json

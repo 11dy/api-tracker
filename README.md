@@ -1,6 +1,6 @@
 # ad-api-notice-watcher
 
-광고 매체 API 공지/릴리즈 노트를 매일 확인해서 **신규 공지만** Claude로 요약하고 텔레그램으로 발송하는 시스템.
+광고 매체 API 공지/릴리즈 노트를 매일 확인해서 **신규 공지만** Claude로 요약하고 슬랙으로 발송하는 시스템.
 
 ## 동작 흐름
 
@@ -23,7 +23,7 @@ GitHub Actions (매일 09:00 KST / 수동 실행)
 │     중요도(🔴🟡🟢) 분류 + 요약 → out/summary.md
 │
 ├─ 4. scripts/notify.py                   ← 결정적 처리
-│     summary.md → 텔레그램 sendMessage (4096자 초과 시 분할)
+│     summary.md → 슬랙 Incoming Webhook (40,000자 초과 시 분할)
 │
 └─ 5. state/seen.json 변경 시 git commit & push
 ```
@@ -42,15 +42,17 @@ GitHub Actions (매일 09:00 KST / 수동 실행)
 
 ## 설정
 
-### 1. 텔레그램 봇 생성
+### 1. 슬랙 Incoming Webhook 생성
 
-1. 텔레그램에서 [@BotFather](https://t.me/BotFather) 검색 → `/newbot` → 봇 이름/username 입력
-2. 발급된 **bot token** 저장 (예: `123456789:AAH...`)
-3. 생성한 봇에게 아무 메시지나 보낸 뒤(또는 그룹에 봇 초대 후 메시지), 아래로 **chat_id** 확인:
-   ```bash
-   curl "https://api.telegram.org/bot<BOT_TOKEN>/getUpdates"
-   # → result[].message.chat.id 값이 chat_id (그룹은 음수일 수 있음)
-   ```
+1. https://api.slack.com/apps → **Create New App** → From scratch → 앱 이름/워크스페이스 선택
+2. 좌측 **Incoming Webhooks** → 토글 On → **Add New Webhook to Workspace** → 발송할 채널 선택
+3. 발급된 **Webhook URL** 저장 (예: `https://hooks.slack.com/services/T.../B.../xxx`)
+
+테스트:
+```bash
+curl -X POST -H 'Content-type: application/json' \
+  --data '{"text":"📢 테스트"}' "https://hooks.slack.com/services/..."
+```
 
 ### 2. GitHub Secrets 등록
 
@@ -59,8 +61,7 @@ repo → Settings → Secrets and variables → Actions → New repository secre
 | Secret | 값 |
 |---|---|
 | `ANTHROPIC_API_KEY` | Anthropic API 키 |
-| `TELEGRAM_BOT_TOKEN` | BotFather가 발급한 토큰 |
-| `TELEGRAM_CHAT_ID` | 위에서 확인한 chat_id |
+| `SLACK_WEBHOOK_URL` | 위에서 발급한 Webhook URL |
 
 ### 3. 첫 실행
 
@@ -81,9 +82,9 @@ python scripts/crawl.py
 python scripts/crawl.py
 cat out/new_items.json
 
-# 3) 텔레그램 발송 테스트 (out/summary.md를 직접 만들어서)
+# 3) 슬랙 발송 테스트 (out/summary.md를 직접 만들어서)
 echo "📢 테스트 메시지" > out/summary.md
-TELEGRAM_BOT_TOKEN=xxx TELEGRAM_CHAT_ID=yyy python scripts/notify.py
+SLACK_WEBHOOK_URL="https://hooks.slack.com/services/..." python scripts/notify.py
 ```
 
 ## 소스 추가 방법

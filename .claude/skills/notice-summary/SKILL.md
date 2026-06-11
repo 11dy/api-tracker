@@ -1,13 +1,13 @@
 ---
 name: notice-summary
-description: out/new_items.json의 광고 매체 API 신규 공지를 중요도 분류와 함께 텔레그램 발송용 out/summary.md로 요약한다.
+description: out/new_items.json의 광고 매체 API 신규 공지를 중요도 분류와 함께 슬랙 발송용 out/summary.md로 요약한다.
 ---
 
 # 광고 API 신규 공지 요약
 
 ## 입력 / 출력
 - **입력**: `out/new_items.json` — `[{ id, source_name, title, url, date, content }]`
-- **출력**: `out/summary.md` — 텔레그램 발송용 요약 (Telegram Markdown 호환)
+- **출력**: `out/summary.md` — 슬랙 발송용 요약 (Slack mrkdwn 호환: 굵게는 `*텍스트*`, 헤딩 `#` 문법 사용 금지)
 
 ## 작성 절차
 1. `out/new_items.json`을 읽는다.
@@ -17,9 +17,9 @@ description: out/new_items.json의 광고 매체 API 신규 공지를 중요도 
 ## 출력 포맷
 
 ```
-📢 광고 API 신규 공지 (YYYY-MM-DD)
+📢 *광고 API 신규 공지 (YYYY-MM-DD)*
 
-[소스명 1]
+*[소스명 1]*
 
 🔴 제목
 요약 1~2줄 (🔴이고 ETL 관련이면 "⚠️ ETL 영향 가능성" 표기)
@@ -29,14 +29,14 @@ description: out/new_items.json의 광고 매체 API 신규 공지를 중요도 
 요약 1~2줄
 🔗 원문링크URL
 
-[소스명 2]
+*[소스명 2]*
 ...
 ```
 
 - 소스별로 그룹핑하고, 같은 소스 내에서는 날짜 내림차순.
 - 요약은 1~2줄로 간결하게. 핵심 변경점(무엇이, 언제부터, 누구에게 영향)만.
 - `content`가 비어 있는 아이템은 **제목 기반으로만 중요도를 분류하고 요약은 생략** (제목 + 링크만 출력).
-- 링크는 raw URL 그대로 출력 (Markdown 링크 문법 사용 금지 — 텔레그램 분할 발송 시 안전).
+- 링크는 raw URL 그대로 출력 (슬랙이 자동 링크 처리. `[텍스트](url)` Markdown 문법 사용 금지).
 
 ## 중요도 분류 규칙
 
