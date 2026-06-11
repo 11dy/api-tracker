@@ -1,4 +1,5 @@
 out/
+wiki/
 __pycache__/
 *.pyc
 .venv/
