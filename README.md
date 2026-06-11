@@ -54,16 +54,28 @@ curl -X POST -H 'Content-type: application/json' \
   --data '{"text":"📢 테스트"}' "https://hooks.slack.com/services/..."
 ```
 
-### 2. GitHub Secrets 등록
+### 2. Claude 인증 토큰 발급 (Pro/Max 구독)
+
+API 키 종량제 과금 대신 claude.ai 구독 할당량을 사용한다 (별도 청구 없음).
+
+```bash
+claude setup-token
+# → 브라우저 OAuth 인증 후 출력되는 토큰을 복사
+```
+
+> 참고: 이 토큰은 개인 구독에 묶이며, 워크플로 실행량만큼 본인의 인터랙티브 사용 할당량을 소모한다.
+> 종량제 API 키를 쓰려면 워크플로의 `claude_code_oauth_token`을 `anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}`로 교체.
+
+### 3. GitHub Secrets 등록
 
 repo → Settings → Secrets and variables → Actions → New repository secret
 
 | Secret | 값 |
 |---|---|
-| `ANTHROPIC_API_KEY` | Anthropic API 키 |
+| `CLAUDE_CODE_OAUTH_TOKEN` | `claude setup-token`으로 발급한 토큰 |
 | `SLACK_WEBHOOK_URL` | 위에서 발급한 Webhook URL |
 
-### 3. 첫 실행
+### 4. 첫 실행
 
 push 후 Actions 탭에서 `ad-api-notice-watch` → Run workflow (수동 실행).
 **최초 실행은 현재 공지 전체를 seen 처리만 하고 알림을 보내지 않는다** (초기화).
