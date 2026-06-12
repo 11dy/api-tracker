@@ -1,4 +1,4 @@
-# ad-api-notice-watcher (repo: 11dy/ad-lab)
+# ad-api-notice-watcher (repo: 11dy/api-tracker)
 
 광고 매체 API 공지를 GitHub Actions 크론(매일 09:23/12:23/15:23/18:23 KST — 정각 혼잡 회피)으로 수집, 신규만 Claude가 요약해 슬랙 발송. 2026-06-12 E2E 검증 완료, 운영 중.
 
@@ -6,7 +6,7 @@
 
 - **문제/작업 요청은 GitHub 이슈로 관리한다.** 세션 시작하면 먼저 열린 이슈를 확인할 것:
   ```bash
-  gh issue list -R 11dy/ad-lab --state open
+  gh issue list -R 11dy/api-tracker --state open
   ```
   이슈 처리 후에는 해당 이슈에 결과를 코멘트로 남기고 close.
 
@@ -36,4 +36,4 @@
 
 ## E2E 테스트 방법
 
-`state/seen.json`에서 최신 id 1~2개 삭제 → commit/push → `gh workflow run watch.yml -R 11dy/ad-lab` → 슬랙 수신 확인. seen은 실행 후 자동 복원 커밋됨.
+`state/seen.json`에서 최신 id 1~2개 삭제 → commit/push → `gh workflow run watch.yml -R 11dy/api-tracker` → 슬랙 수신 확인. seen은 실행 후 자동 복원 커밋됨.
