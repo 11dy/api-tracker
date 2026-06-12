@@ -2,7 +2,7 @@ name: ad-api-notice-watch
 
 on:
   schedule:
-    - cron: '0 0,3,6,9 * * *' # 매일 09:00, 12:00, 15:00, 18:00 KST (UTC 00/03/06/09시)
+    - cron: '23 0,3,6,9 * * *' # 매일 09:23, 12:23, 15:23, 18:23 KST (UTC 00/03/06/09시) — 정각은 혼잡으로 지연/누락이 잦아 23분으로 분산
   workflow_dispatch:
 
 permissions:

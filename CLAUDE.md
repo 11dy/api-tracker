@@ -1,6 +1,6 @@
 # ad-api-notice-watcher (repo: 11dy/ad-lab)
 
-광고 매체 API 공지를 GitHub Actions 크론(매일 09/12/15/18시 KST)으로 수집, 신규만 Claude가 요약해 슬랙 발송. 2026-06-12 E2E 검증 완료, 운영 중.
+광고 매체 API 공지를 GitHub Actions 크론(매일 09:23/12:23/15:23/18:23 KST — 정각 혼잡 회피)으로 수집, 신규만 Claude가 요약해 슬랙 발송. 2026-06-12 E2E 검증 완료, 운영 중.
 
 ## 세션 시작 시 확인할 것
 
