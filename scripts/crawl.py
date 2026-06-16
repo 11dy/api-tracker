@@ -9,8 +9,10 @@ import hashlib
 import json
 import re
 import sys
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import urljoin
+from xml.etree import ElementTree as ET
 
 import requests
 from bs4 import BeautifulSoup
@@ -60,20 +62,35 @@ def clean_text(text: str) -> str:
 # ---------------------------------------------------------------------------
 
 def parse_naver_searchad(source):
-    """GitHub Issues API — title/html_url/created_at, body가 곧 본문."""
-    issues = fetch(source["url"], as_json=True)
+    """공식 공지 RSS 피드(feed.xml) — item별 title/link/pubDate/category/description.
+
+    사람용 공지 페이지(#/notice)는 AngularJS SPA라 정적 파싱 불가 → 같은 공지의 RSS 원본을 사용.
+    GitHub Issues(/issues)는 사용자 Q&A지 공식 공지가 아니므로 쓰지 않는다.
+    """
+    root = ET.fromstring(fetch(source["url"]))
     items = []
-    for issue in issues[:MAX_ITEMS_PER_SOURCE]:
-        if "pull_request" in issue:  # PR 제외
+    for item in root.iter("item"):
+        url = clean_text(item.findtext("link") or "")
+        if not url:
             continue
-        url = issue["html_url"]
+        date = ""
+        pub = item.findtext("pubDate")
+        if pub:
+            try:
+                date = parsedate_to_datetime(pub).date().isoformat()
+            except (TypeError, ValueError):
+                date = ""
+        # description은 HTML(한글+영어 번역 중복) — 태그 제거 후 본문화
+        desc = BeautifulSoup(item.findtext("description") or "", "html.parser").get_text(" ")
         items.append({
             "id": item_id(url),
-            "title": clean_text(issue["title"]),
+            "title": clean_text(item.findtext("title") or ""),
             "url": url,
-            "date": (issue.get("created_at") or "")[:10],
-            "content": clean_text(issue.get("body") or "")[:CONTENT_MAX_CHARS],
+            "date": date,
+            "content": clean_text(desc)[:CONTENT_MAX_CHARS],
         })
+        if len(items) >= MAX_ITEMS_PER_SOURCE:
+            break
     return items
 
 

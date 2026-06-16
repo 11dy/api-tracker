@@ -2,8 +2,8 @@
   {
     "id": "naver_searchad",
     "name": "네이버 검색광고 API",
-    "url": "https://api.github.com/repos/naver/searchad-apidoc/issues?state=all&sort=created&direction=desc&per_page=10",
-    "type": "github_api",
+    "url": "https://naver.github.io/searchad-apidoc/feed.xml",
+    "type": "rss",
     "parser": "parse_naver_searchad",
     "enabled": true
   },
