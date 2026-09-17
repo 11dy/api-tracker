@@ -5,5 +5,5 @@
 | 매체 | 건수 | 최근 공지 |
 |---|---|---|
 | [google_ads](google_ads/README.md) | 5 | 2026-08-19 [v25.1 (2026-08-19)](google_ads/2026/08/2026-08-19-v25.1.md) |
-| [kakao_devtalk](kakao_devtalk/README.md) | 6 | 2026-09-02 [카카오비즈니스 파트너 개인정보처리방침 개정 안내](kakao_devtalk/2026/09/2026-09-02-카카오비즈니스-파트너-개인정보처리방침-개정-안내.md) |
+| [kakao_devtalk](kakao_devtalk/README.md) | 7 | 2026-09-14 [2026년 카카오비즈니스 베스트 어워즈: 카카오 API 우수 활용 사례 모집](kakao_devtalk/2026/09/2026-09-14-2026년-카카오비즈니스-베스트-어워즈-카카오-api-우수-활용-사례-모집.md) |
 | [naver_searchad](naver_searchad/README.md) | 3 | 2026-09-16 [Release Note](naver_searchad/2026/09/2026-09-16-release-note.md) |
