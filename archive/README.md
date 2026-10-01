@@ -5,5 +5,5 @@
 | 매체 | 건수 | 최근 공지 |
 |---|---|---|
 | [google_ads](google_ads/README.md) | 6 | 2026-09-23 [v25.2 (2026-09-23)](google_ads/2026/09/2026-09-23-v25.2.md) |
-| [kakao_devtalk](kakao_devtalk/README.md) | 8 | 2026-09-22 [카카오비즈니스 이용약관 개정 안내](kakao_devtalk/2026/09/2026-09-22-카카오비즈니스-이용약관-개정-안내.md) |
+| [kakao_devtalk](kakao_devtalk/README.md) | 9 | 2026-09-29 [배송지 조회 API v2 제공 및 v1 지원 종료 안내 | Shipping Address API v2 Release and v1 End of Support](kakao_devtalk/2026/09/2026-09-29-배송지-조회-api-v2-제공-및-v1-지원-종료-안내-shipping-address-api-v2-relea.md) |
 | [naver_searchad](naver_searchad/README.md) | 3 | 2026-09-16 [Release Note](naver_searchad/2026/09/2026-09-16-release-note.md) |
