@@ -1,7 +1,8 @@
 # kakao_devtalk 아카이브
 
-총 10건
+총 11건
 
+- 2026-10-15 [서비스 정기 점검에 따른 D-U-N-S 번호 해외사업자 비즈앱 전환 일시 중단 (10/17(토) 13:00~ 21:30) | Temporary Suspension of Biz App Conversion for Overseas Businesses Using D-U-N-S Numbers Due to Scheduled Maintenance (October 17, 13:00–21:30 KST)](2026/10/2026-10-15-서비스-정기-점검에-따른-d-u-n-s-번호-해외사업자-비즈앱-전환-일시-중단-1017토-1300-2130.md)
 - 2026-10-08 [카카오비즈니스 파트너 개인정보처리방침 개정 안내](2026/10/2026-10-08-카카오비즈니스-파트너-개인정보처리방침-개정-안내.md)
 - 2026-09-29 [배송지 조회 API v2 제공 및 v1 지원 종료 안내 | Shipping Address API v2 Release and v1 End of Support](2026/09/2026-09-29-배송지-조회-api-v2-제공-및-v1-지원-종료-안내-shipping-address-api-v2-relea.md)
 - 2026-09-22 [카카오비즈니스 이용약관 개정 안내](2026/09/2026-09-22-카카오비즈니스-이용약관-개정-안내.md)
