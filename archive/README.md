@@ -6,4 +6,4 @@
 |---|---|---|
 | [google_ads](google_ads/README.md) | 7 | 2026-10-14 [v26 (2026-10-14)](google_ads/2026/10/2026-10-14-v26.md) |
 | [kakao_devtalk](kakao_devtalk/README.md) | 12 | 2026-10-28 [카카오비즈니스 파트너 개인정보처리방침 개정 안내](kakao_devtalk/2026/10/2026-10-28-카카오비즈니스-파트너-개인정보처리방침-개정-안내.md) |
-| [naver_searchad](naver_searchad/README.md) | 3 | 2026-09-16 [Release Note](naver_searchad/2026/09/2026-09-16-release-note.md) |
+| [naver_searchad](naver_searchad/README.md) | 4 | 2026-10-29 [쇼핑검색광고(쇼핑몰 상품형·제품 카탈로그형) QI 항목 변경 안내](naver_searchad/2026/10/2026-10-29-쇼핑검색광고쇼핑몰-상품형제품-카탈로그형-qi-항목-변경-안내.md) |
