@@ -1,8 +1,10 @@
 # kakao_devtalk 아카이브
 
-총 13건
+총 15건
 
 - 2026-11-11 [카카오비즈니스 파트너 개인정보처리방침 개정 안내](2026/11/2026-11-11-카카오비즈니스-파트너-개인정보처리방침-개정-안내.md)
+- 2026-11-09 [[신규 기능 소개] 카카오톡 공유: 대상 선택 화면에서 [나에게] 버튼 숨기기 | [New Feature] Kakao Talk Share: Hide the [Me] button in the share picker](2026/11/2026-11-09-신규-기능-소개-카카오톡-공유-대상-선택-화면에서-나에게-버튼-숨기기-new-feature-kakao-tal.md)
+- 2026-11-05 [[신규 기능 소개] 쿼터 사용량 통계 개편 | [New Feature] New quota usage statistics](2026/11/2026-11-05-신규-기능-소개-쿼터-사용량-통계-개편-new-feature-new-quota-usage-statistics.md)
 - 2026-10-28 [카카오비즈니스 파트너 개인정보처리방침 개정 안내](2026/10/2026-10-28-카카오비즈니스-파트너-개인정보처리방침-개정-안내.md)
 - 2026-10-15 [서비스 정기 점검에 따른 D-U-N-S 번호 해외사업자 비즈앱 전환 일시 중단 (10/17(토) 13:00~ 21:30) | Temporary Suspension of Biz App Conversion for Overseas Businesses Using D-U-N-S Numbers Due to Scheduled Maintenance (October 17, 13:00–21:30 KST)](2026/10/2026-10-15-서비스-정기-점검에-따른-d-u-n-s-번호-해외사업자-비즈앱-전환-일시-중단-1017토-1300-2130.md)
 - 2026-10-08 [카카오비즈니스 파트너 개인정보처리방침 개정 안내](2026/10/2026-10-08-카카오비즈니스-파트너-개인정보처리방침-개정-안내.md)
