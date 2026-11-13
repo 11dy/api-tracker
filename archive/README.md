@@ -5,5 +5,5 @@
 | 매체 | 건수 | 최근 공지 |
 |---|---|---|
 | [google_ads](google_ads/README.md) | 9 | 2026-11-11 [v26.2 (2026-11-11)](google_ads/2026/11/2026-11-11-v26.2.md) |
-| [kakao_devtalk](kakao_devtalk/README.md) | 15 | 2026-11-11 [카카오비즈니스 파트너 개인정보처리방침 개정 안내](kakao_devtalk/2026/11/2026-11-11-카카오비즈니스-파트너-개인정보처리방침-개정-안내.md) |
+| [kakao_devtalk](kakao_devtalk/README.md) | 16 | 2026-11-13 [🎪 카카오 비즈니스 페어 2026 참가 신청 안내 | Kakao Business Fair 2026 — Apply Now](kakao_devtalk/2026/11/2026-11-13-카카오-비즈니스-페어-2026-참가-신청-안내-kakao-business-fair-2026-apply-now.md) |
 | [naver_searchad](naver_searchad/README.md) | 4 | 2026-10-29 [쇼핑검색광고(쇼핑몰 상품형·제품 카탈로그형) QI 항목 변경 안내](naver_searchad/2026/10/2026-10-29-쇼핑검색광고쇼핑몰-상품형제품-카탈로그형-qi-항목-변경-안내.md) |

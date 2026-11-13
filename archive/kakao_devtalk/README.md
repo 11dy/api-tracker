@@ -1,7 +1,8 @@
 # kakao_devtalk 아카이브
 
-총 15건
+총 16건
 
+- 2026-11-13 [🎪 카카오 비즈니스 페어 2026 참가 신청 안내 | Kakao Business Fair 2026 — Apply Now](2026/11/2026-11-13-카카오-비즈니스-페어-2026-참가-신청-안내-kakao-business-fair-2026-apply-now.md)
 - 2026-11-11 [카카오비즈니스 파트너 개인정보처리방침 개정 안내](2026/11/2026-11-11-카카오비즈니스-파트너-개인정보처리방침-개정-안내.md)
 - 2026-11-09 [[신규 기능 소개] 카카오톡 공유: 대상 선택 화면에서 [나에게] 버튼 숨기기 | [New Feature] Kakao Talk Share: Hide the [Me] button in the share picker](2026/11/2026-11-09-신규-기능-소개-카카오톡-공유-대상-선택-화면에서-나에게-버튼-숨기기-new-feature-kakao-tal.md)
 - 2026-11-05 [[신규 기능 소개] 쿼터 사용량 통계 개편 | [New Feature] New quota usage statistics](2026/11/2026-11-05-신규-기능-소개-쿼터-사용량-통계-개편-new-feature-new-quota-usage-statistics.md)
